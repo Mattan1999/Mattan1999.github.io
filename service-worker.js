@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.698d9d289edf24e046361b2545b686c9.js"
+  "/precache-manifest.f72290032458cf870d6f6ba2f7169662.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "labb4"});
@@ -33,4 +33,4 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute("https://v2.jokeapi.dev/joke/Any?type=twopart", new workbox.strategies.NetworkFirst({ "networkTimeoutSeconds":5, plugins: [] }), 'GET');
+workbox.routing.registerRoute(/^https:\/\/v2\.jokeapi\.dev\/joke\/Any\?type=twopart&\d+$/, new workbox.strategies.NetworkFirst({ "networkTimeoutSeconds":5, plugins: [] }), 'GET');
